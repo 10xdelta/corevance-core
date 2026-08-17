@@ -1,0 +1,12 @@
+{
+    "name": "LoanAccountsStayedLockedDataV1",
+    "namespace": "com.corevance.avro.loan.v1",
+    "type": "record",
+    "fields": [{
+        "name": "loanAccounts",
+        "type": {
+            "type": "array",
+            "items": "com.corevance.avro.loan.v1.LoanAccountStayedLockedDataV1"
+        }
+    }]
+}

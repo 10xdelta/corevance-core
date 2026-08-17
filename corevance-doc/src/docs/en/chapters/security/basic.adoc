@@ -1,0 +1,18 @@
+= HTTP Basic Authentication
+
+By default Corevance is configured with a HTTP Basic Authentication scheme, so you actually don't have to do anything if you want to use it. But if you would like to explicitly choose this authentication scheme then there are two ways to enable it:
+
+. Use environment variables (best choice if you run with Docker Compose):
++
+[source,bash]
+----
+COREVANCE_SECURITY_BASICAUTH_ENABLED=true
+COREVANCE_SECURITY_OAUTH_ENABLED=false
+----
+ 
+. Use JVM parameters (best choice if you run the Spring Boot JAR):
++
+[source,bash]
+----
+java -Dcorevance.security.basicauth.enabled=true -Dcorevance.security.oauth2.enabled=false -jar corevance-provider.jar
+----

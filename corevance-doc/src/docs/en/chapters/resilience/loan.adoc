@@ -1,0 +1,23 @@
+= Loan
+
+== `LoanWritePlatformService`
+
+TBD
+
+.Retry-able service function `recalculateInterest`
+[source,java]
+----
+include::{rootdir}/corevance-provider/src/main/java/com/corevance/portfolio/loanaccount/service/LoanWritePlatformServiceJpaRepositoryImpl.java[lines=3217..3247]
+----
+
+.Fallback function `fallbackRecalculateInterest`
+[source,java]
+----
+include::{rootdir}/corevance-provider/src/main/java/com/corevance/portfolio/loanaccount/service/LoanWritePlatformServiceJpaRepositoryImpl.java[lines=3255..3266]
+----
+
+.Retry configuration for `recalculateInterest`
+[source,properties]
+----
+include::{rootdir}/corevance-provider/src/main/resources/application.properties[lines=180..185]
+----

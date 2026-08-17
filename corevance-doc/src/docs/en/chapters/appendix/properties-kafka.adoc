@@ -1,0 +1,158 @@
+= Kafka Properties
+
+.Kafka related properties for Remote Spring Batch Jobs
+|===
+|Name |Env Variable |Default Value |Description
+
+|corevance.remote-job-message-handler.kafka.enabled
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_ENABLED
+|false
+|Enables or disables Kafka for remote job execution. If Kafka is enabled then JMS shall be disabled.
+
+|corevance.remote-job-message-handler.kafka.topic.auto-create
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_TOPIC_AUTO_CREATE
+|true
+|Enables topic auto creation. In case the auto creation of the topic is disabled please make sure that the replica and the partition count is properly configured.
+
+|corevance.remote-job-message-handler.kafka.topic.name
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_TOPIC_NAME
+|job-topic
+|Name of the topic where partitioned tasks are sent to
+
+|corevance.remote-job-message-handler.kafka.topic.replicas
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_TOPIC_REPLICAS
+|1
+|Number of the replicas
+
+|corevance.remote-job-message-handler.kafka.topic.partitions
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_TOPIC_PARTITIONS
+|10
+|Number of partitions
+
+|corevance.remote-job-message-handler.kafka.bootstrap-servers
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_BOOTSTRAP_SERVERS
+|localhost:9092
+|Comma separated list of bootstrap servers
+
+|corevance.remote-job-message-handler.kafka.consumer.group-id
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_CONSUMER_GROUPID
+|corevance-consumer-group-id
+|Group ID of the Consumer
+
+|corevance.remote-job-message-handler.kafka.consumer.extra-properties-key-value-separator
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_CONSUMER_EXTRA_PROPERTIES_SEPARATOR
+|=
+|Defines key and value separator for consumer,e.g.: key=value
+
+|corevance.remote-job-message-handler.kafka.consumer.extra-properties-separator
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_CONSUMER_EXTRA_PROPERTIES_SEPARATOR
+|\|
+|Defines item separator for consumer, e.g.: key1=value1\|key2=value2
+
+|corevance.remote-job-message-handler.kafka.consumer.extra-properties
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_CONSUMER_EXTRA_PROPERTIES
+|
+|#holds list of key value pairs using the above defined separators for consumer:  key1=value1\|key2=value2\|...\|keyn=valuen
+
+|corevance.remote-job-message-handler.kafka.producer.extra-properties-key-value-separator
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_PRODUCER_EXTRA_PROPERTIES_KEY_VALUE_SEPARATOR
+|=
+|Defines key and value separator for producer,e.g.: key=value
+
+|corevance.remote-job-message-handler.kafka.producer.extra-properties-separator
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_PRODUCER_EXTRA_PROPERTIES_SEPARATOR
+|\|
+|Defines item separator for producer, e.g.: key1=value1\|key2=value2
+
+|corevance.remote-job-message-handler.kafka.producer.extra-properties
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_PRODUCER_EXTRA_PROPERTIES
+|
+|#holds list of key value pairs using the above defined separators for producer:  key1=value1\|key2=value2\|...\|keyn=valuen
+
+|corevance.remote-job-message-handler.kafka.admin.extra-properties-key-value-separator
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_ADMIN_EXTRA_PROPERTIES_KEY_VALUE_SEPARATOR
+|=
+|Defines key and value separator for admin,e.g.: key=value
+
+|corevance.remote-job-message-handler.kafka.admin.extra-properties-separator
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_ADMIN_EXTRA_PROPERTIES_SEPARATOR
+|\|
+|Defines item separator for admin, e.g.: key1=value1\|key2=value2
+
+|corevance.remote-job-message-handler.kafka.admin.extra-properties
+|COREVANCE_REMOTE_JOB_MESSAGE_HANDLER_KAFKA_ADMIN_EXTRA_PROPERTIES
+|
+|#holds list of key value pairs using the above defined separators for admin:  key1=value1\|key2=value2\|...\|keyn=valuen
+
+|===
+
+.Kafka related Properties for External Events
+|===
+|Name |Env Variable |Default Value |Description
+
+|corevance.events.external.producer.kafka.enabled
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_ENABLED
+|false
+|Enables disables Kafka for External Events. If Kafka is enabled then JMS shall be disabled.
+
+|corevance.events.external.producer.kafka.timeout-in-seconds
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_TIMEOUT_IN_SECONDS
+|10
+|Timeout for Kafka confirming the messages written in the topic
+
+|corevance.events.external.producer.kafka.topic.auto-create
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_TOPIC_AUTO_CREATE
+|true
+|Enables topic auto creation. In case the auto creation of the topic is disabled please make sure that the replica and the partition count is properly configured.
+
+|corevance.events.external.producer.kafka.topic.name
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_TOPIC_NAME
+|external-events
+|Name of the topic where external events are sent to
+
+|corevance.events.external.producer.kafka.topic.replicas
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_TOPIC_REPLICAS
+|1
+|Number of the replicas
+
+|corevance.events.external.producer.kafka.topic.partitions
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_TOPIC_PARTITIONS
+|10
+|Number of partitions
+
+|corevance.events.external.producer.kafka.bootstrap-servers
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_BOOTSTRAP_SERVERS
+|localhost:9092
+|Comma separated list of Kafka bootstrap servers
+
+|corevance.events.external.producer.kafka.producer.extra-properties-separator
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_PRODUCER_EXTRA_PROPERTIES_SEPARATOR
+|\|
+|Defines item separator for producer,e.g.: key=value
+
+|corevance.events.external.producer.kafka.producer.extra-properties-key-value-separator
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_PRODUCER_EXTRA_PROPERTIES_KEY_VALUE_SEPARATOR
+|=
+|Defines key and value separator for producer client
+
+|corevance.events.external.producer.kafka.producer.extra-properties
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_PRODUCER_EXTRA_PROPERTIES
+|linger.ms=10\|batch.size=16384
+|Defines the extra properties for external event producer clients. Optimization for sending out large volume of messages. Increases Batch buffer size and batching time window.
+
+|corevance.events.external.producer.kafka.admin.extra-properties-separator
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_ADMIN_EXTRA_PROPERTIES_SEPARATOR
+|\|
+|Defines item separator for admin client.
+
+|corevance.events.external.producer.kafka.admin.extra-properties-key-value-separator
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_ADMIN_EXTRA_PROPERTIES_KEY_VALUE_SEPARATOR
+|=
+|Defines key and value separator for admin client
+
+|corevance.events.external.producer.kafka.admin.extra-properties
+|COREVANCE_EXTERNAL_EVENTS_KAFKA_ADMIN_EXTRA_PROPERTIES
+|
+|Defines the extra properties for external event admin clients
+
+|===

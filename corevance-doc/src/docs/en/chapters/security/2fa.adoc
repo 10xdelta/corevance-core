@@ -1,0 +1,17 @@
+= Two-factor authentication
+
+You can enable 2FA authentication. Depending on how you start Corevance add the following:
+
+. Use environment variables (best choice if you run with Docker Compose):
++
+[source,bash]
+----
+COREVANCE_SECURITY_2FA_ENABLED=true
+----
+
+. Use JVM parameter (best choice if you run the Spring Boot JAR):
++
+[source,bash]
+----
+java -Dcorevance.security.2fa.enabled=true -jar corevance-provider.jar
+----

@@ -1,0 +1,34 @@
+{
+    "name": "LoanTransactionAdjustmentDataV1",
+    "namespace": "com.corevance.avro.loan.v1",
+    "type": "record",
+    "fields": [
+        {
+            "default": null,
+            "name": "transactionToAdjust",
+            "type": [
+                "null",
+                "com.corevance.avro.loan.v1.LoanTransactionDataV1"
+            ]
+        },
+        {
+            "default": null,
+            "name": "newTransactionDetail",
+            "type": [
+                "null",
+                "com.corevance.avro.loan.v1.LoanTransactionDataV1"
+            ]
+        },
+        {
+            "default": null,
+            "name": "customData",
+            "type": [
+                "null",
+                {
+                    "values": "bytes",
+                    "type": "map"
+                }
+            ]
+        }
+    ]
+}

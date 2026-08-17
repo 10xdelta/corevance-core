@@ -1,0 +1,49 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package com.corevance.infrastructure.event.external.producer;
+
+import com.corevance.infrastructure.core.condition.PropertiesCondition;
+import com.corevance.infrastructure.core.config.CorevanceProperties;
+
+public class NoopExternalEventEnabled extends PropertiesCondition {
+
+    @Override
+    protected boolean matches(CorevanceProperties properties) {
+        return (!getEffectiveJMSProperty(properties) && !getEffectiveKafkaProperty(properties));
+    }
+
+    private boolean getEffectiveJMSProperty(CorevanceProperties properties) {
+        if (properties.getEvents() == null || properties.getEvents().getExternal() == null
+                || properties.getEvents().getExternal().getProducer() == null
+                || properties.getEvents().getExternal().getProducer().getJms() == null) {
+            return false;
+        }
+        return properties.getEvents().getExternal().getProducer().getJms().isEnabled();
+    }
+
+    private boolean getEffectiveKafkaProperty(CorevanceProperties properties) {
+        if (properties.getEvents() == null || properties.getEvents().getExternal() == null
+                || properties.getEvents().getExternal().getProducer() == null
+                || properties.getEvents().getExternal().getProducer().getKafka() == null) {
+            return false;
+        }
+        return properties.getEvents().getExternal().getProducer().getKafka().isEnabled();
+    }
+
+}

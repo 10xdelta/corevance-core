@@ -1,0 +1,6 @@
+= Corevance Client Documentation
+
+[%collapsible]
+====
+include::{rootdir}/corevance-client/build/generated/asciidoc/index.adoc[]
+====

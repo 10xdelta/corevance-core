@@ -1,0 +1,157 @@
+{
+    "name": "GroupGeneralDataV1",
+    "namespace": "com.corevance.avro.group.v1",
+    "type": "record",
+    "fields": [
+        {
+            "default": null,
+            "name": "id",
+            "type": [
+                "null",
+                "long"
+            ]
+        },
+        {
+            "default": null,
+            "name": "accountNo",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "name",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "externalId",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "status",
+            "type": [
+                "null",
+                "com.corevance.avro.generic.v1.EnumOptionDataV1"
+            ]
+        },
+        {
+            "default": null,
+            "name": "active",
+            "type": [
+                "null",
+                "boolean"
+            ]
+        },
+        {
+            "default": null,
+            "name": "activationDate",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "officeId",
+            "type": [
+                "null",
+                "long"
+            ]
+        },
+        {
+            "default": null,
+            "name": "officeName",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "centerId",
+            "type": [
+                "null",
+                "long"
+            ]
+        },
+        {
+            "default": null,
+            "name": "centerName",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "staffId",
+            "type": [
+                "null",
+                "long"
+            ]
+        },
+        {
+            "default": null,
+            "name": "staffName",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "hierarchy",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "groupLevel",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "groupRoles",
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": "com.corevance.avro.group.v1.GroupRoleDataV1"
+                }
+            ]
+        },
+        {
+            "default": null,
+            "name": "calendarsData",
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": "com.corevance.avro.generic.v1.CalendarDataV1"
+                }
+            ]
+        },
+        {
+            "default": null,
+            "name": "collectionMeetingCalendar",
+            "type": [
+                "null",
+                "com.corevance.avro.generic.v1.CalendarDataV1"
+            ]
+        }
+    ]
+}

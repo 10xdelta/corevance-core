@@ -1,0 +1,5 @@
+= Resources
+
+* Project URL is https://github.com/apache/corevance
+* Issue tracker is https://issues.apache.org/jira/projects/COREVANCE/summary
+* Download from http://corevance.apache.org/

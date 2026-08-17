@@ -1,0 +1,27 @@
+{
+    "name": "LoanAccountStayedLockedDataV1",
+    "namespace": "com.corevance.avro.loan.v1",
+    "type": "record",
+    "fields": [
+        {
+            "name": "id",
+            "type": "long"
+        },
+        {
+            "default": null,
+            "name": "externalId",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        {
+            "default": null,
+            "name": "accountNo",
+            "type": [
+                "null",
+                "string"
+            ]
+        }
+    ]
+}

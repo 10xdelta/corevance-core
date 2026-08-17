@@ -1,0 +1,68 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package com.corevance.integrationtests.client.feign.helpers;
+
+import static com.corevance.client.feign.util.FeignCalls.ok;
+
+import java.util.List;
+import com.corevance.client.feign.CorevanceFeignClient;
+import com.corevance.client.models.GetGlobalConfigurationsResponse;
+import com.corevance.client.models.GlobalConfigurationPropertyData;
+import com.corevance.client.models.PutGlobalConfigurationsRequest;
+
+public class FeignGlobalConfigurationHelper {
+
+    private final CorevanceFeignClient corevanceClient;
+
+    public FeignGlobalConfigurationHelper(CorevanceFeignClient corevanceClient) {
+        this.corevanceClient = corevanceClient;
+    }
+
+    public void enableOriginatorCreationDuringLoanApplication() {
+        updateConfigurationByName("enable-originator-creation-during-loan-application", true);
+    }
+
+    public void disableOriginatorCreationDuringLoanApplication() {
+        updateConfigurationByName("enable-originator-creation-during-loan-application", false);
+    }
+
+    public void updateConfigurationByName(String configName, boolean enabled) {
+        ok(() -> corevanceClient.globalConfiguration().updateConfigurationByName(configName,
+                new PutGlobalConfigurationsRequest().enabled(enabled)));
+    }
+
+    public void manageConfigurations(String configName, boolean enabled) {
+        updateConfigurationByName(configName, enabled);
+    }
+
+    public void updateGlobalConfiguration(String configName, PutGlobalConfigurationsRequest request) {
+        ok(() -> corevanceClient.globalConfiguration().updateConfigurationByName(configName, request));
+    }
+
+    public Long getConfigurationIdByName(String configName) {
+        List<GlobalConfigurationPropertyData> configs = getConfigurationList();
+        return configs.stream().filter(c -> configName.equals(c.getName())).findFirst().map(GlobalConfigurationPropertyData::getId)
+                .orElseThrow(() -> new RuntimeException("Configuration not found: " + configName));
+    }
+
+    private List<GlobalConfigurationPropertyData> getConfigurationList() {
+        GetGlobalConfigurationsResponse response = ok(() -> corevanceClient.globalConfiguration().retrieveConfiguration(false));
+        return response.getGlobalConfiguration();
+    }
+}

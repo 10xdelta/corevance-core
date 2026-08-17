@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  version: @VERSION@
+  title: Apache Corevance REST API
+  description: |-
+    Apache Corevance is a secure, multi-tenanted microfinance platform.
+    The goal of the Apache Corevance API is to empower developers to build apps on top of the Apache Corevance Platform.
+    The [reference app](https://cui.corevance.dev) (username: mifos, password: password) works on the same demo tenant as the interactive links in this documentation.
+    Until we complete the new REST API documentation you still have the legacy documentation available [here](https://corevance.apache.org/docs/legacy/).
+    Please check [the current Corevance documentation](https://corevance.apache.org/docs/current/) for more information.
+  contact:
+    email: dev@corevance.apache.org
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: /corevance-provider/api
+  - url: https://demo.corevance.dev/corevance-provider/api
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    tenantid:        
+      type: apiKey
+      in: header       
+      name: corevance-platform-tenantid 
+security:
+  - basicAuth: []
+    tenantid: []

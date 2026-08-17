@@ -1,0 +1,110 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package com.corevance.portfolio.workingcapitalloan.data;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import com.corevance.infrastructure.core.data.StringEnumOptionData;
+import com.corevance.infrastructure.core.domain.ExternalId;
+import com.corevance.organisation.monetary.data.CurrencyData;
+import com.corevance.portfolio.client.data.ClientData;
+import com.corevance.portfolio.delinquency.data.DelinquencyBucketData;
+import com.corevance.portfolio.loanaccount.data.LoanApplicationTimelineData;
+import com.corevance.portfolio.loanaccount.data.LoanStatusEnumData;
+import com.corevance.portfolio.loanorigination.data.LoanOriginatorData;
+import com.corevance.portfolio.workingcapitalloanbreach.data.WorkingCapitalBreachData;
+import com.corevance.portfolio.workingcapitalloannearbreach.data.WorkingCapitalNearBreachData;
+import com.corevance.portfolio.workingcapitalloanproduct.data.WorkingCapitalLoanProductData;
+import com.corevance.portfolio.workingcapitalloanproduct.data.WorkingCapitalPaymentAllocationData;
+
+/**
+ * Data Transfer Object for Working Capital Loan (application/summary).
+ */
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class WorkingCapitalLoanData implements Serializable {
+
+    private Long id;
+    private String accountNo;
+    private ExternalId externalId;
+    private ClientData client;
+    private Long clientId;
+    private String clientAccountNo;
+    private String clientName;
+    private ExternalId clientExternalId;
+    private Long clientOfficeId;
+    private Long fundId;
+    private String fundName;
+    private WorkingCapitalLoanProductData product;
+    private Long loanProductId;
+    private String loanProductName;
+    private String loanProductDescription;
+    private LoanStatusEnumData status;
+    private BigDecimal proposedPrincipal;
+    private BigDecimal approvedPrincipal;
+    private BigDecimal principal;
+    private BigDecimal netDisbursalAmount;
+    private StringEnumOptionData amortizationType;
+    private Integer npvDayCount;
+    private Integer loanProductCounter;
+    private List<WorkingCapitalLoanChargeData> charges;
+
+    private CurrencyData currency;
+    private BigDecimal paymentRate;
+    private Integer repaymentEvery;
+    private StringEnumOptionData repaymentFrequencyType;
+    private BigDecimal discountFee;
+    private BigDecimal proposedDiscountFee;
+    private BigDecimal approvedDiscountFee;
+    private Integer numberOfRepayments;
+    private BigDecimal periodPaymentAmount;
+    private BigDecimal dailyEir;
+    private BigDecimal calculatedAnnualEir;
+    private DelinquencyBucketData delinquencyBucket;
+    private WorkingCapitalBreachData breach;
+    private WorkingCapitalNearBreachData nearBreach;
+    private LocalDate lastClosedBusinessDate;
+    private List<WorkingCapitalPaymentAllocationData> paymentAllocation;
+    private LoanApplicationTimelineData timeline;
+    private List<WorkingCapitalLoanDisbursementDetailData> disbursementDetails;
+    private WorkingCapitalLoanBalanceData balance;
+    private Integer delinquencyGraceDays;
+    private StringEnumOptionData delinquencyStartType;
+    private Integer breachGraceDays;
+    private StringEnumOptionData breachStartType;
+    private BigDecimal totalPaymentVolume;
+    private LocalDate delinquencyStartDate;
+    private LocalDate breachStartDate;
+    private WorkingCapitalLoanCollectionData delinquent;
+    private Boolean enableInstallmentLevelDelinquency;
+    private WorkingCapitalLoanSummaryData summary;
+    private List<LoanOriginatorData> originators;
+    private Boolean fraud;
+    private Boolean chargedOff;
+}

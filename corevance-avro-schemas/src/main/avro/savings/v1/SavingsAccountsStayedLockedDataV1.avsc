@@ -1,0 +1,12 @@
+{
+    "name": "SavingsAccountsStayedLockedDataV1",
+    "namespace": "com.corevance.avro.savings.v1",
+    "type": "record",
+    "fields": [{
+        "name": "savingsAccounts",
+        "type": {
+            "type": "array",
+            "items": "com.corevance.avro.savings.v1.SavingsAccountStayedLockedDataV1"
+        }
+    }]
+}

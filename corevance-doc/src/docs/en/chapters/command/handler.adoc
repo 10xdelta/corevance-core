@@ -1,0 +1,25 @@
+= Command Handler
+
+TBD
+
+.Command Processing Architecture Level 2 - Handlers
+[plantuml, format=svg]
+----
+include::{diagramsdir}/command-architecture-level-2-handler.puml[]
+----
+
+== Handler Manager
+
+.Command Handler Manager
+[source,java]
+----
+include::{rootdir}/corevance-command/src/main/java/com/corevance/command/core/CommandHandlerManager.java[lines=19..]
+----
+
+== Handler
+
+.Command Handler
+[source,java]
+----
+include::{rootdir}/corevance-command/src/main/java/com/corevance/command/core/CommandHandler.java[lines=19..]
+----

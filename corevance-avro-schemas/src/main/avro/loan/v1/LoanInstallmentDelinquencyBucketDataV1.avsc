@@ -1,0 +1,31 @@
+{
+    "name": "LoanInstallmentDelinquencyBucketDataV1",
+    "namespace": "com.corevance.avro.loan.v1",
+    "type": "record",
+    "fields": [
+        {
+            "default": null,
+            "name": "delinquencyRange",
+            "type": [
+                "null",
+                "com.corevance.avro.loan.v1.DelinquencyRangeDataV1"
+            ]
+        },
+        {
+            "name": "amount",
+            "doc": "Contains installments  total, fee, interest, principal and penalty amount summaries",
+            "type": "com.corevance.avro.loan.v1.LoanAmountDataV1"
+        },
+        {
+            "name": "charges",
+            "type": {
+                "type": "array",
+                "items": "com.corevance.avro.loan.v1.LoanChargeDataRangeViewV1"
+            }
+        },
+        {
+            "name": "currency",
+            "type": "com.corevance.avro.generic.v1.CurrencyDataV1"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+= Validation
+
+TBD
+
+Jakarta Validation...
+
+.Validation Messages
+[source,properties]
+----
+include::{rootdir}/corevance-validation/src/main/resources/ValidationMessages.properties[]
+----
+

@@ -1,0 +1,23 @@
+{
+    "name": "LoanChargeDataRangeViewV1",
+    "namespace": "com.corevance.avro.loan.v1",
+    "type": "record",
+    "fields": [
+        {
+            "name": "id",
+            "type": "long"
+        },
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "currency",
+            "type": "com.corevance.avro.generic.v1.CurrencyDataV1"
+        },
+        {
+            "name": "amount",
+            "type": "bigdecimal"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+= Generate Apache Corevance API Client
+
+Apache Corevance supports client code generation using https://openapi-generator.tech[OpenAPI Generator]. It uses https://swagger.io/specification/[OpenAPI Specification Version 3.0.3].
+
+== Corevance SDK Java API Client
+
+The `corevance-client.jar` will eventually be available on Maven Central (watch https://issues.apache.org/jira/browse/COREVANCE-1102[COREVANCE-1102]). Until it is, you can quite easily build the latest and greatest version locally from source, see below.
+
+The https://github.com/search?q=repo%3Aapache%2Fcorevance+path%3ACorevanceClient.java&type=code[`CorevanceClient`] is the entry point to the _Corevance SDK Java API Client_. https://github.com/search?l=&q=repo%3Aapache%2Fcorevance+path%3ACalls.java&type=code[`Calls`] is a convenient and recommended utility to simplify the use of the https://square.github.io/retrofit/2.x/retrofit/retrofit2/Call.html[`retrofit2.Call`] type which all API operations return. This permits you to use the API like the https://github.com/search?l=&q=repo%3Aapache%2Fcorevance+path%3ACorevanceClientDemo.java&type=code[`CorevanceClientDemo`] illustrates:
+
+[source,java]
+----
+import com.corevance.client.util.CorevanceClient;
+import static com.corevance.client.util.Calls.ok;
+
+include::{rootdir}/corevance-client/src/test/java/com/corevance/client/test/CorevanceClientDemo.java[tags=documentation]
+----
+
+== Generate API Client
+
+The API client is built as part of the standard overall Corevance Gradle build. The client JAR can be found in `corevance-client/build/libs` as `corevance-client.jar`.
+
+If you need to save time to incrementally work on making small changes to Swagger annotations in an IDE, you can execute e.g. the following line in root directory of the project to exclude non-require Gradle tasks:
+
+----
+./gradlew -x compileJava -x compileTest -x spotlessJava -x enhance resolve prepareInputYaml :corevance-client:buildJavaSdk
+----
+
+== Validate OpenAPI Spec File
+
+The `resolve` task in https://github.com/apache/corevance/blob/develop/corevance-provider/build.gradle#L80[build.gradle] file will generate the OpenAPI Spec File for the project. To make sure Swagger Codegen generates a correct library, it is important for the OpenAPI Spec file to be valid. Validation is done automatically by the OpenAPI code generator Gradle plugin. If you still have problems during code generation please use https://validator.swagger.io/[Swagger OpenAPI Validator] to validate the spec file.
